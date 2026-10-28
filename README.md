@@ -23,6 +23,12 @@ Homebrew でもインストールできます。
 brew install --cask EVAtiter/tap/cmdpath
 ```
 
+Homebrew 7 以降で「untrusted tap」と表示されたら、先に tap を信頼してから実行してください。
+
+```bash
+brew trust --cask evatiter/tap/cmdpath
+```
+
 ---
 
 ## 使い方

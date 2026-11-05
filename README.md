@@ -1,29 +1,31 @@
+[English](README.md) | [日本語](README.ja.md)
+
 # CmdPath
 
-Finder ウインドウのタイトル（フォルダ名）を **⌘（Command）＋クリック**すると、フォルダの階層メニューを表示する、
-macOS メニューバー常駐のユーティリティです。
+A macOS menu-bar utility that shows the folder hierarchy menu when you **⌘ (Command)-click** the title (folder name)
+of a Finder window.
 
-macOS 27.2 の Finder では、タイトルの ⌘＋クリックで階層メニューが出なくなりました。CmdPath はこの操作を復活させ、
-**Finder 標準の階層メニュー**をそのまま出します。
+In the Finder on macOS 27.2, ⌘-clicking the title no longer shows the hierarchy menu. CmdPath brings this back and shows
+**the Finder's own hierarchy menu** as it is.
 
 ---
 
-## ダウンロード
+## Download
 
-最新版は [Releases](https://github.com/EVAtiter/CmdPath-release/releases/latest) からダウンロードできます。
+Download the latest version from [Releases](https://github.com/EVAtiter/CmdPath-release/releases/latest).
 
-1. `CmdPath-x.x.x.zip` を解凍し、`CmdPath.app` を「アプリケーション」フォルダへ移動
-2. 起動すると、アクセシビリティの許可を求める説明が出ます。「続ける」→「システム設定を開く」から、
-   **システム設定 → プライバシーとセキュリティ → アクセシビリティ** で CmdPath を ON にする
-3. Finder を前面にすると動作を始めます
+1. Unzip `CmdPath-x.x.x.zip` and move `CmdPath.app` to the Applications folder
+2. When you open it, CmdPath explains that it needs Accessibility permission. Click Continue, then Open System Settings,
+   and turn on CmdPath in **System Settings → Privacy & Security → Accessibility**
+3. CmdPath starts working when the Finder is in front
 
-Homebrew でもインストールできます。
+You can also install it with Homebrew.
 
 ```bash
 brew install --cask EVAtiter/tap/cmdpath
 ```
 
-Homebrew 7 以降で「untrusted tap」と表示されたら、先に次のコマンドで cmdpath を信頼してから、もう一度インストールしてください。
+If Homebrew 7 or later reports an "untrusted tap", trust cmdpath first with the command below, then install again.
 
 ```bash
 brew trust --cask evatiter/tap/cmdpath
@@ -31,48 +33,49 @@ brew trust --cask evatiter/tap/cmdpath
 
 ---
 
-## 使い方
+## How to use
 
-Finder のウインドウで、タイトルのフォルダ名（またはその左のフォルダアイコン）を ⌘＋クリックします。
-現在のフォルダから上の階層までのメニューが出るので、移動したい階層を選びます。
+In a Finder window, ⌘-click the folder name in the title (or the folder icon to its left).
+A menu appears with the current folder and the folders above it. Choose the one you want to go to.
 
-- 背面にある Finder ウインドウのタイトルでも使えます（Finder が前面のとき）
-- タブ・ウインドウの大きさ・ツールバーの表示形式に関係なく使えます
-- カーソルは動きません
-
----
-
-## 主な機能
-
-- **⌘＋クリックで階層メニュー** — Finder 標準のメニューをそのまま表示（独自のメニューは作りません）
-- **有効 / 無効の切り替え** — メニューバーから
-- **ログイン時に起動**
-- **メニューバーのアイコンを隠す** — 隠しても動作し続けます。戻すには CmdPath をもう一度起動します
-- **日本語 / 英語対応** — システムの言語が日本語以外なら英語で表示します（1.1.0 から）
+- Also works on the title of a Finder window in the background (while the Finder is in front)
+- Works regardless of tabs, window size, and how the toolbar is shown
+- The cursor does not move
 
 ---
 
-## ご注意
+## Features
 
-- Finder が前面のときだけ動作します。変えるのは「⌘ だけを押した左クリックが Finder のタイトルに当たったとき」だけで、
-  通常のクリック・右クリック・ほかのアプリの操作は変えません
-- カーソルをタイトルに載せてすぐ（約 0.3 秒以内に）⌘＋クリックすると、何も起きません。もう一度押してください
-- タイトルの上での ⌘＋ドラッグは、メニューが出る操作に変わります
-- CmdPath が動いている最中にアクセシビリティの許可を外すと、約 10 秒、クリックを受け付けなくなります（その後は自動で戻ります）。
-  許可を外すときは、先に CmdPath を終了してください
-- 外部ディスプレイ・ディスプレイごとに倍率が違う環境では、まだ動作を確かめていません
+- **Hierarchy menu with ⌘-click** — Shows the Finder's own menu as it is (CmdPath does not draw its own menu)
+- **Turn on / off** — From the menu bar
+- **Open at Login**
+- **Hide the menu bar icon** — CmdPath keeps working while the icon is hidden. To show it again, open CmdPath again
+- **Japanese / English** — Shown in English when the system language is not Japanese (since 1.1.0)
 
 ---
 
-## プライバシー
+## Notes
 
-ネットワーク通信をしません。操作の記録や個人情報を保存しません。Finder の改変・コードの注入・非公開 API は使いません。
+- CmdPath works only while the Finder is in front. It changes only a left-click with ⌘ alone held down that lands on a
+  Finder window title. Normal clicks, right-clicks, and other apps are not affected
+- If you ⌘-click right after moving the cursor onto the title (within about 0.3 seconds), nothing happens. Click again
+- ⌘-dragging on the title shows the menu instead
+- If you turn off Accessibility permission while CmdPath is running, clicks are not accepted for about 10 seconds
+  (they come back on their own). Quit CmdPath before turning off the permission
+- Not yet tested with external displays or with displays that use different scaling
 
 ---
 
-## 対応 OS
+## Privacy
 
-macOS 14 Sonoma 以降（macOS 27.2 で動作確認）/ Apple Silicon（arm64）専用 / Apple 公証済み
+CmdPath does not use the network. It does not record what you do or store personal information. It does not modify the
+Finder, inject code, or use private APIs.
+
+---
+
+## Requirements
+
+macOS 14 Sonoma or later (tested on macOS 27.2) / Apple Silicon (arm64) only / Notarized by Apple
 
 ---
 
